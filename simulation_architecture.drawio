@@ -1,0 +1,94 @@
+<mxfile host="65bd71144e">
+    <diagram id="simulation-architecture" name="Simulation Architecture">
+        <mxGraphModel dx="2800" dy="816" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="main" value="&lt;b&gt;main.py&lt;/b&gt;&lt;br&gt;entry point" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;arcSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="490" y="80" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="scheduler" value="&lt;b&gt;scheduler.py&lt;/b&gt;&lt;br&gt;APScheduler - fires bot sessions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;arcSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="440" y="180" width="280" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="bot" value="&lt;b&gt;bot.py&lt;/b&gt;&lt;br&gt;session loop - fetch, score, act, post, ..." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;arcSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="420" y="290" width="320" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="bluesky" value="&lt;b&gt;bluesky.py&lt;/b&gt;&lt;br&gt;atproto API wrapper" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;arcSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="290" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="content" value="&lt;b&gt;content.py&lt;/b&gt;&lt;br&gt;cosine scoring, lang detect" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;arcSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="1160" y="160" width="210" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="generator" value="&lt;b&gt;generator.py&lt;/b&gt;&lt;br&gt;post generation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;arcSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="1060" y="384" width="210" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="storage" value="&lt;b&gt;storage.py&lt;/b&gt;&lt;br&gt;writes everything to SQLite" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;arcSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="440" y="420" width="280" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="config" value="&lt;b&gt;config.py&lt;/b&gt;&lt;br&gt;all bot profiles + params" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;arcSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="-40" y="175" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="env" value="&lt;b&gt;.env&lt;/b&gt;&lt;br&gt;handles + passwords" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;arcSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="-190" y="295" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="bskyapi" value="&lt;b&gt;Bluesky API&lt;/b&gt;&lt;br&gt;atproto / AT Protocol" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;arcSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="420" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="sttransf" value="&lt;b&gt;sentence-transformers&lt;/b&gt;&lt;br&gt;all-MiniLM-L6-v2 ???&lt;div&gt;need to check which one&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;arcSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="1160" y="60" width="210" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="anthropic" value="&lt;b&gt;Anthropic API&lt;/b&gt;&lt;br&gt;claude-sonnet-4-6" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;arcSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="1060" y="600" width="210" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="db" value="&lt;b&gt;simulation.db (SQLite)&lt;/b&gt;&lt;br&gt;posts - actions - feed_snapshots - graph" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="530" width="300" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="main" target="scheduler" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" source="scheduler" target="bot" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="bot" target="bluesky" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="bot" target="content" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="bot" target="generator" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" source="bot" target="storage" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="bluesky" target="bskyapi" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="content" target="sttransf" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="generator" target="anthropic" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e10" style="edgeStyle=orthogonalEdgeStyle;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" source="storage" target="db" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e11" value="read at startup" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#666666;fillColor=#f5f5f5;" parent="1" source="config" target="scheduler" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e12" value="credentials" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#b85450;fillColor=#f8cecc;" parent="1" source="env" target="bluesky" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="hkcg6a2HjEGhs2Zd1XnC-2" value="&lt;b&gt;done&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;arcSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="-240" y="740" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="hkcg6a2HjEGhs2Zd1XnC-4" value="&lt;b&gt;in progress&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;arcSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="10" y="740" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="hkcg6a2HjEGhs2Zd1XnC-5" value="&lt;b&gt;not started&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;arcSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="740" width="200" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
