@@ -77,6 +77,17 @@ Two snapshots are written every Monday:
 
 ---
 
+## Work plan
+
+| Phase | What happens |
+|-------|-------------|
+| Setup | Create 9 Bluesky accounts, fill `.env`, create and tune the code |
+| Simulation | Bots run on schedule, DB collects seen posts, actions, and weekly snapshots |
+| Analysis | Load DB into pandas, compute entropy curves, build follow graphs in networkx, plot results |
+| Write-up | Interpret results against research question, compare with literature |
+
+---
+
 ## Literature
 
 - Burbach et al. (2019): Bubble Trouble: Strategies Against Filter Bubbles in Online Social Networks - https://calerovaldez.com/pdf/burbach2019bubble.pdf
